@@ -27,165 +27,100 @@
     }
 
     html, body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: var(--bg-color);
-        overflow-x: hidden;
+        width: 100%; height: 100%; margin: 0; padding: 0;
+        background-color: var(--bg-color); overflow-x: hidden;
     }
 
     body {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        color: var(--text-main);
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        box-sizing: border-box;
-        overscroll-behavior-y: none;
+        color: var(--text-main); display: flex; justify-content: center;
+        align-items: flex-start; box-sizing: border-box; overscroll-behavior-y: none;
     }
 
     .container {
-        background-color: var(--container-bg);
-        width: 100%;
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
+        background-color: var(--container-bg); width: 100%;
+        min-height: 100vh; min-height: -webkit-fill-available;
         padding: 24px;
         padding-top: calc(24px + env(safe-area-inset-top));
-        padding-bottom: calc(90px + env(safe-area-inset-bottom)); /* Platz für die Tabbar */
+        padding-bottom: calc(90px + env(safe-area-inset-bottom)); 
         padding-left: calc(24px + env(safe-area-inset-left));
         padding-right: calc(24px + env(safe-area-inset-right));
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
+        box-sizing: border-box; display: flex; flex-direction: column;
     }
 
-    /* Views (Tabs) */
     .view { display: none; flex-direction: column; flex: 1; }
     .view.active { display: flex; }
 
-    /* Header */
-    .app-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        margin-bottom: 25px;
-    }
+    .app-header { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 25px; }
     .app-logo { width: 36px; height: 36px; object-fit: contain; }
     h2 { margin: 0; font-size: 1.5rem; font-weight: 600; }
 
-    /* Allgemeine UI Elemente */
     .btn {
-        background: var(--box-bg);
-        color: var(--text-main);
-        border: 1px solid var(--border);
-        padding: 14px;
-        border-radius: 10px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        text-align: center;
-        width: 100%;
-        margin-top: 15px;
+        background: var(--box-bg); color: var(--text-main); border: 1px solid var(--border);
+        padding: 14px; border-radius: 10px; font-size: 1rem; font-weight: 600;
+        cursor: pointer; text-align: center; width: 100%; margin-top: 15px;
     }
     .btn-primary { background: var(--accent); color: #000; border: none; }
+    .btn-small { padding: 8px 16px; width: auto; margin-top: 0; }
 
-    /* Formular Elemente */
     .form-group { margin-bottom: 25px; }
     .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
     label { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
     
     input[type=text], textarea {
-        width: 100%;
-        background: var(--box-bg);
-        border: 1px solid var(--border);
-        color: var(--text-main);
-        padding: 14px;
-        border-radius: 8px;
-        font-size: 1rem;
-        box-sizing: border-box;
+        width: 100%; background: var(--box-bg); border: 1px solid var(--border);
+        color: var(--text-main); padding: 14px; border-radius: 8px; font-size: 1rem; box-sizing: border-box;
     }
     input[type=text]:focus, textarea:focus { outline: none; border-color: var(--accent); }
 
-    /* Native Select (Spinregler) */
     .native-select {
-        appearance: none;
-        -webkit-appearance: none;
-        background: var(--box-bg);
-        color: var(--text-main);
-        border: 1px solid var(--border);
-        padding: 14px 16px;
-        border-radius: 8px;
-        font-size: 1.1rem;
-        font-weight: 600;
-        width: 100%;
-        cursor: pointer;
-        text-align: center;
+        appearance: none; -webkit-appearance: none; background: var(--box-bg);
+        color: var(--text-main); border: 1px solid var(--border); padding: 14px 16px;
+        border-radius: 8px; font-size: 1.1rem; font-weight: 600; width: 100%; cursor: pointer; text-align: center;
     }
     .native-select:focus { outline: none; border-color: var(--accent); color: var(--accent); }
 
     /* Horizontale Chips */
     .chips-wrapper {
-        display: flex;
-        overflow-x: auto;
-        gap: 10px;
-        padding-bottom: 10px;
-        scrollbar-width: none; /* Firefox */
+        display: flex; overflow-x: auto; gap: 10px; padding-bottom: 10px; margin-bottom: 15px;
+        scrollbar-width: none; 
     }
-    .chips-wrapper::-webkit-scrollbar { display: none; } /* Safari/Chrome */
+    .chips-wrapper::-webkit-scrollbar { display: none; } 
     
     .chip {
-        background: var(--box-bg);
-        border: 1px solid var(--border);
-        color: var(--text-muted);
-        padding: 10px 18px;
-        border-radius: 20px;
-        white-space: nowrap;
-        font-size: 0.95rem;
-        font-weight: 500;
-        cursor: pointer;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
+        background: var(--box-bg); border: 1px solid var(--border); color: var(--text-muted);
+        padding: 10px 18px; border-radius: 20px; white-space: nowrap; font-size: 0.95rem;
+        font-weight: 500; cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
     }
-    .chip.active {
-        background: rgba(245, 197, 24, 0.1);
-        border-color: var(--accent);
-        color: var(--accent);
-    }
+    .chip.active { background: rgba(245, 197, 24, 0.1); border-color: var(--accent); color: var(--accent); }
     .chip-new { border-style: dashed; color: var(--text-main); }
 
     /* Sliders */
     .value-display {
-        font-size: 1.1rem; font-weight: 600; color: var(--text-main);
-        background: var(--bg-color); padding: 4px 10px; border-radius: 6px;
-        border: 1px solid var(--border); min-width: 70px; text-align: center;
+        font-size: 1.1rem; font-weight: 600; color: var(--text-main); background: var(--bg-color);
+        padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); min-width: 70px; text-align: center;
     }
     input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; }
     input[type=range]:focus { outline: none; }
     input[type=range]::-webkit-slider-thumb {
         -webkit-appearance: none; height: 28px; width: 28px; border-radius: 50%;
-        background: var(--accent); cursor: pointer; margin-top: -12px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+        background: var(--accent); cursor: pointer; margin-top: -12px; box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
     input[type=range]::-webkit-slider-runnable-track {
         width: 100%; height: 5px; cursor: pointer; background: var(--border); border-radius: 2px;
     }
 
     /* Listen-Ansicht */
-    .recipe-list { display: flex; flex-direction: column; gap: 12px; }
-    .recipe-card {
-        background: var(--card-bg); border: 1px solid var(--border);
-        border-radius: 12px; padding: 16px; display: flex; justify-content: space-between;
-        align-items: center; cursor: pointer;
+    .recipe-list { display: flex; flex-direction: column; gap: 10px; }
+    .recipe-card-simple {
+        background: var(--box-bg); border: 1px solid var(--border); border-radius: 10px;
+        padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer;
     }
-    .recipe-info h4 { margin: 0 0 4px 0; font-size: 1.1rem; }
-    .recipe-info p { margin: 0; color: var(--text-muted); font-size: 0.85rem; }
-    .recipe-stats { text-align: right; }
-    .recipe-stats .temp { color: var(--accent); font-weight: bold; font-size: 1.1rem; }
-    .recipe-stats .time { color: var(--text-main); font-weight: 600; }
+    .recipe-card-simple h4 { margin: 0; font-size: 1.1rem; color: var(--text-main); }
+    .recipe-card-simple p { margin: 4px 0 0 0; font-size: 0.85rem; color: var(--text-muted); }
+    .chevron { color: var(--text-muted); font-size: 1.2rem; }
 
-    /* Rechner UI (Zusammengefasst aus v1) */
+    /* Große Karte (Rechner & Detail) */
     .airfryer-result-card { background: var(--card-bg); border: 1px solid var(--border); padding: 24px; border-radius: 12px; margin-bottom: 25px; }
     .subtitle { font-size: 11px; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px; text-transform: uppercase; }
     .title { margin: 0 0 20px 0; font-size: 28px; color: var(--accent); }
@@ -194,24 +129,19 @@
     .stat-label { font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 6px; margin-bottom: 8px; font-weight: 500; }
     .stat-value { font-size: 26px; font-weight: 700; color: var(--text-main); display: flex; align-items: baseline; gap: 4px; }
     .stat-value span { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+    
     .toggle-buttons { display: flex; background: var(--box-bg); padding: 4px; border-radius: 10px; margin-bottom: 25px; border: 1px solid var(--border); }
-    .toggle-buttons button { flex: 1; padding: 12px; border: none; background: transparent; border-radius: 8px; font-weight: 500; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .toggle-buttons button { flex: 1; padding: 12px; border: none; background: transparent; border-radius: 8px; font-weight: 500; color: var(--text-muted); }
     .toggle-buttons button.active { background: var(--container-bg); color: var(--text-main); border: 1px solid var(--border); }
-    .toggle-buttons button.active svg { color: var(--accent); }
 
     /* Bottom Tab Bar */
     .tab-bar {
-        position: fixed; bottom: 0; left: 0; width: 100%;
-        background: var(--container-bg); border-top: 1px solid var(--border);
-        display: flex; justify-content: space-around;
-        padding-bottom: env(safe-area-inset-bottom);
-        z-index: 100;
+        position: fixed; bottom: 0; left: 0; width: 100%; background: var(--container-bg); border-top: 1px solid var(--border);
+        display: flex; justify-content: space-around; padding-bottom: env(safe-area-inset-bottom); z-index: 100;
     }
     .tab-bar button {
-        flex: 1; background: transparent; border: none; padding: 16px 0;
-        color: var(--text-muted); font-size: 0.8rem; font-weight: 600;
-        display: flex; flex-direction: column; align-items: center; gap: 4px;
-        cursor: pointer;
+        flex: 1; background: transparent; border: none; padding: 16px 0; color: var(--text-muted);
+        font-size: 0.8rem; font-weight: 600; display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer;
     }
     .tab-bar button.active { color: var(--accent); }
   </style>
@@ -224,7 +154,7 @@
       <h2>Airfryer OS</h2>
     </div>
 
-    <!-- VIEW: RECHNER (Umrechnung) -->
+    <!-- VIEW 1: RECHNER -->
     <div id="view-calc" class="view active">
       <div class="airfryer-result-card">
         <div class="subtitle">Airfryer Programm</div>
@@ -253,7 +183,6 @@
         </div>
         <input type="range" id="ovenTemp" value="200" min="50" max="300" step="5" oninput="updateCalcUI()">
       </div>
-
       <div class="form-group">
         <div class="header-row">
           <label>Backofen-Garzeit</label>
@@ -265,21 +194,48 @@
       <button class="btn btn-primary" onclick="transferToForm()">Als Gericht speichern</button>
     </div>
 
-    <!-- VIEW: MEINE GERICHTE (Liste) -->
+    <!-- VIEW 2: MEINE GERICHTE (Liste) -->
     <div id="view-list" class="view">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <div class="header-row">
         <h3 style="margin:0;">Gespeichert</h3>
-        <button class="btn btn-primary" style="margin:0; width: auto; padding: 8px 16px;" onclick="openForm()">+ Neu</button>
+        <button class="btn btn-primary btn-small" onclick="openForm()">+ Neu</button>
       </div>
       
-      <!-- Filter Chips könnten hier später rein -->
+      <!-- Filter Chips -->
+      <div class="chips-wrapper" id="listChips"></div>
 
-      <div class="recipe-list" id="recipeListContainer">
-        <!-- Wird per JS gefüllt -->
-      </div>
+      <!-- Namensliste -->
+      <div class="recipe-list" id="recipeListContainer"></div>
     </div>
 
-    <!-- VIEW: FORMULAR (Erstellen / Bearbeiten) -->
+    <!-- VIEW 3: DETAIL (Ablese-Modus) -->
+    <div id="view-detail" class="view">
+      <div class="header-row" style="margin-bottom: 20px;">
+        <button class="btn btn-small" style="margin:0; background:transparent;" onclick="switchTab('list')">← Zurück</button>
+      </div>
+      
+      <h3 id="detailName" style="margin-top:0; margin-bottom: 20px; font-size: 1.6rem;">McCain Pommes</h3>
+      
+      <div class="airfryer-result-card" style="margin-bottom: 20px;">
+        <div class="subtitle">Programm</div>
+        <h1 class="title" id="detailProgram">Air Fry</h1>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-label">TEMPERATUR</div>
+            <div class="stat-value" id="detailTemp">195<span>°C</span></div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">ZEIT</div>
+            <div class="stat-value" id="detailTime">22<span>min</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <input type="hidden" id="currentDetailId">
+      <button class="btn btn-primary" onclick="openFormFromDetail()">Werte anpassen</button>
+    </div>
+
+    <!-- VIEW 4: FORMULAR (Bearbeiten) -->
     <div id="view-form" class="view">
       <h3 id="formTitle" style="margin-top:0;">Neues Gericht</h3>
       
@@ -290,9 +246,7 @@
 
       <div class="form-group">
         <label style="display:block; margin-bottom: 8px;">Kategorie</label>
-        <div class="chips-wrapper" id="formChips">
-          <!-- Chips per JS generiert -->
-        </div>
+        <div class="chips-wrapper" id="formChips"></div>
       </div>
 
       <div class="form-group">
@@ -332,15 +286,13 @@
       <button class="btn" id="btnDelete" style="background:#3a1c1c; border-color:#5c2b2b; color:#ff6b6b; display:none;" onclick="deleteRecipe()">Eintrag löschen</button>
     </div>
 
-    <!-- VIEW: BACKUP -->
+    <!-- VIEW 5: BACKUP -->
     <div id="view-settings" class="view">
       <h3 style="margin-top:0;">JSON Backup</h3>
-      <p style="color: var(--text-muted); font-size: 0.9rem;">Kopiere deine Daten als Textblock für deine Notizen oder füge ein Backup hier ein, um es wiederherzustellen.</p>
-      
+      <p style="color: var(--text-muted); font-size: 0.9rem;">Kopiere deine Daten als Textblock für deine Notizen.</p>
       <textarea id="backupTextarea" rows="10" placeholder="Daten hier einfügen..."></textarea>
-      
-      <button class="btn btn-primary" onclick="exportJSON()">In Zwischenablage kopieren (Export)</button>
-      <button class="btn" onclick="importJSON()">Aus Textfeld importieren</button>
+      <button class="btn btn-primary" onclick="exportJSON()">Kopieren (Export)</button>
+      <button class="btn" onclick="importJSON()">Einfügen (Import)</button>
     </div>
 
   </div>
@@ -357,50 +309,88 @@
     let recipes = JSON.parse(localStorage.getItem('af_recipes')) || [];
     let categories = JSON.parse(localStorage.getItem('af_categories')) || ['🍟 Pommes', '🥦 Gemüse', '🍗 Fleisch', '🥐 Backwaren'];
     let selectedCategory = categories[0];
+    let listFilterCategory = 'Alle';
     
     // --- TAB NAVIGATION ---
     function switchTab(tabId) {
       document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
       document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
       
-      // Handle special views that don't have a direct tab
-      const targetView = tabId === 'form' ? 'form' : tabId;
+      const targetView = (tabId === 'form' || tabId === 'detail') ? tabId : tabId;
       document.getElementById('view-' + targetView).classList.add('active');
       
-      if(tabId !== 'form') {
+      if(tabId !== 'form' && tabId !== 'detail') {
         document.getElementById('tab-' + tabId).classList.add('active');
       }
 
-      if(tabId === 'list') renderList();
+      if(tabId === 'list') {
+        renderListChips();
+        renderList();
+      }
       if(tabId === 'settings') prepareBackupView();
     }
 
-    // --- MEINE GERICHTE (LISTE) ---
+    // --- MEINE GERICHTE (LISTE & FILTER) ---
+    function renderListChips() {
+      const container = document.getElementById('listChips');
+      container.innerHTML = '';
+      
+      const filterOptions = ['Alle', ...categories];
+      
+      filterOptions.forEach(cat => {
+        const div = document.createElement('div');
+        div.className = 'chip ' + (listFilterCategory === cat ? 'active' : '');
+        div.textContent = cat;
+        div.onclick = () => { listFilterCategory = cat; renderListChips(); renderList(); };
+        container.appendChild(div);
+      });
+    }
+
     function renderList() {
       const container = document.getElementById('recipeListContainer');
       container.innerHTML = '';
       
-      if (recipes.length === 0) {
-        container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">Noch keine Gerichte gespeichert.</p>';
+      let filteredRecipes = recipes;
+      if (listFilterCategory !== 'Alle') {
+        filteredRecipes = recipes.filter(r => r.category === listFilterCategory);
+      }
+      
+      if (filteredRecipes.length === 0) {
+        container.innerHTML = '<p style="color:var(--text-muted); text-align:center;">Keine Einträge gefunden.</p>';
         return;
       }
 
-      recipes.forEach(r => {
+      filteredRecipes.forEach(r => {
         const div = document.createElement('div');
-        div.className = 'recipe-card';
-        div.onclick = () => openForm(r.id);
+        div.className = 'recipe-card-simple';
+        div.onclick = () => openDetail(r.id);
         div.innerHTML = `
-          <div class="recipe-info">
+          <div>
             <h4>${r.name}</h4>
-            <p>${r.category} • ${r.program}</p>
+            <p>${r.category}</p>
           </div>
-          <div class="recipe-stats">
-            <div class="temp">${r.temp}°C</div>
-            <div class="time">${r.time} Min</div>
-          </div>
+          <div class="chevron">›</div>
         `;
         container.appendChild(div);
       });
+    }
+
+    // --- ABLESE-MODUS (DETAIL) ---
+    function openDetail(id) {
+      const r = recipes.find(x => x.id === id);
+      if(!r) return;
+      
+      document.getElementById('detailName').textContent = r.name;
+      document.getElementById('detailProgram').textContent = r.program;
+      document.getElementById('detailTemp').innerHTML = `${r.temp}<span>°C</span>`;
+      document.getElementById('detailTime').innerHTML = `${r.time}<span>min</span>`;
+      document.getElementById('currentDetailId').value = r.id;
+      
+      switchTab('detail');
+    }
+
+    function openFormFromDetail() {
+      openForm(document.getElementById('currentDetailId').value);
     }
 
     // --- FORMULAR LOGIK ---
@@ -432,7 +422,7 @@
     }
 
     function openForm(id = null) {
-      document.getElementById('formTitle').textContent = id ? 'Gericht bearbeiten' : 'Neues Gericht';
+      document.getElementById('formTitle').textContent = id ? 'Werte anpassen' : 'Neues Gericht';
       document.getElementById('btnDelete').style.display = id ? 'block' : 'none';
       
       if (id) {
@@ -447,7 +437,6 @@
         document.getElementById('recipeId').value = '';
         document.getElementById('recipeName').value = '';
         selectedCategory = categories[0];
-        // Temp/Time bleiben auf dem letzten Stand des Sliders
       }
       
       document.getElementById('formTempDisplay').textContent = document.getElementById('recipeTemp').value + ' °C';
@@ -479,7 +468,9 @@
       }
 
       localStorage.setItem('af_recipes', JSON.stringify(recipes));
-      switchTab('list');
+      
+      // Nach dem Speichern: Gehe zur Detail-Ansicht des gespeicherten Gerichts
+      openDetail(data.id);
     }
 
     function deleteRecipe() {
@@ -492,13 +483,11 @@
     }
 
     function transferToForm() {
-      // Holt die berechneten Werte aus der UI
       const calcProg = document.getElementById('resProgramName').textContent;
       const calcTemp = document.getElementById('resTemp').innerText.replace('°C','');
       const calcTime = document.getElementById('resTime').innerText.replace('min','');
       
       openForm();
-      
       document.getElementById('recipeProgram').value = calcProg;
       document.getElementById('recipeTemp').value = calcTemp;
       document.getElementById('recipeTime').value = calcTime;
@@ -512,34 +501,25 @@
       const exportData = { categories, recipes };
       document.getElementById('backupTextarea').value = JSON.stringify(exportData, null, 2);
     }
-
     function exportJSON() {
       const ta = document.getElementById('backupTextarea');
-      ta.select();
-      document.execCommand('copy');
-      alert('Backup in die Zwischenablage kopiert! Du kannst es jetzt in deinen Notizen speichern.');
+      ta.select(); document.execCommand('copy');
+      alert('Kopiert! Du kannst es jetzt in Obsidian als Backup ablegen.');
     }
-
     function importJSON() {
       try {
         const val = document.getElementById('backupTextarea').value;
         const data = JSON.parse(val);
         if (data.categories && data.recipes) {
-          categories = data.categories;
-          recipes = data.recipes;
+          categories = data.categories; recipes = data.recipes;
           localStorage.setItem('af_categories', JSON.stringify(categories));
           localStorage.setItem('af_recipes', JSON.stringify(recipes));
-          alert('Daten erfolgreich wiederhergestellt!');
-          switchTab('list');
-        } else {
-          alert('Ungültiges Format.');
-        }
-      } catch(e) {
-        alert('Fehler beim Import. Bitte JSON prüfen.');
-      }
+          alert('Daten erfolgreich importiert!'); switchTab('list');
+        } else { alert('Ungültiges Format.'); }
+      } catch(e) { alert('Fehler beim Import.'); }
     }
 
-    // --- RECHNER LOGIK (V1) ---
+    // --- RECHNER LOGIK ---
     let isUmluft = true;
     function setCalcProgram(type) {
       isUmluft = (type === 'umluft');
@@ -551,7 +531,6 @@
     function updateCalcUI() {
       const ovenTemp = parseInt(document.getElementById('ovenTemp').value);
       const ovenTime = parseInt(document.getElementById('ovenTime').value);
-      
       document.getElementById('tempDisplay').textContent = ovenTemp + " °C";
       document.getElementById('timeDisplay').textContent = ovenTime + " Min.";
 
@@ -570,7 +549,6 @@
       document.getElementById('resTime').innerHTML = `${afTime}<span>min</span>`;
     }
     
-    // Init Rechner
     updateCalcUI();
   </script>
 </body>
